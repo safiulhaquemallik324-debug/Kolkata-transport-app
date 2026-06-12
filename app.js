@@ -886,19 +886,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  async function fetchAndShowSchedule(route) {
+  async function fetchAndShowSchedule(route) 
+  console.log("SCHEDULE ROUTE:", route.mode, route.name, route.allRoutes);{
     const scheduleBox = document.getElementById("schedule-box");
     if (!scheduleBox) return;
 
-    if (route.mode !== "Metro" && route.mode !== "Rail") {
+    const mode = String(route.mode || "").toLowerCase();
+
+    if (!["metro", "rail", "train", "local train", "railway"].includes(mode)) {
       scheduleBox.style.display = "none";
       return;
     }
 
     // Line name detect
     let lineName = "";
-    if (route.mode === "Metro") {
-      lineName = route.allRoutes?.[0]?.id || "";
+
+    if (mode === "metro") {
+      lineName = route.allRoutes?.[0]?.id || route.name || "";
     } else {
       lineName = route.name || route.allRoutes?.[0]?.id || "";
     }
