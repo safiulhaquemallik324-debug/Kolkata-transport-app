@@ -1644,7 +1644,7 @@ body:not([data-theme="light"]) .leaflet-tile-pane {
   position: absolute;
   bottom: 24px;
   left: 50%;
-  width: min(560px, calc(100vw - 480px - 40px));
+  width: min(1000px, calc(100vw - 480px - 40px));
   max-width: calc(100vw - 40px);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
