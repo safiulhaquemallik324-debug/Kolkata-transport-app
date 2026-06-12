@@ -1,0 +1,552 @@
+export const behalaRoutes = [
+
+    {
+        "no": "12C/1",
+        "path": [
+            "Shibrampur Terminus",
+            "Ketopole",
+            "Muchipara",
+            "Shakuntala Park",
+            "Tetultala",
+            "Raidighi",
+            "Bakultala",
+            "Natun Para",
+            "Paris Para",
+            "Behala Chowrasta",
+            "Behala 14 No. Bus Stand",
+            "Behala P.S.",
+            "Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station",
+            "Remount Road",
+            "Burdwan Road",
+            "Mominpur",
+            "Khidirpur Market / Crossing",
+            "Hastings / P.T.S. More",
+            "Race Course",
+            "P.G. Hospital / Rabindra Sadan",
+            "Exide More",
+            "Maidan Metro Station",
+            "Park Street",
+            "Mayo Road",
+            "Esplanade / Dharmatala",
+            "Curzon Park",
+            "Raj Bhawan",
+            "B.B.D. Bag / Dalhousie",
+            "Canning Street / Tea Board",
+            "Burrabazar P.S.",
+            "Howrah Bridge (Rabindra Setu)",
+            "Howrah Station Bus Terminus"
+        ],
+        "status": "Active & Regular (High Passenger Volume Core Behala Line)",
+        "type": "Private Standard"
+    },
+
+
+    ///////////////////////////////// second //////////////////////////////////
+    
+    {
+        "no": "18A",
+        "path": [
+            "Greenfield City (Terminal Destination)",
+            "Shibrampur Oxytown",
+            "Muchipara",
+            "Shakuntala Park",
+            "Bakultala",
+            "Natunpara",
+            "Behala Chowrasta",
+            "Behala Tram Depot",
+            "Behala 14 No. Bus Stand",
+            "Behala Thana / Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station",
+            "Mominpur",
+            "Ekbalpur Crossing",
+            "Khidirpur Crossing",
+            "Hastings / P.T.S. More",
+            "Fort William",
+            "Curzon Park",
+            "Raj Bhawan / Esplanade",
+            "B.B.D. Bag (Dalhousie)",
+            "Burrabazar P.S. / Fairlie Place",
+            "Howrah Bridge (Rabindra Setu)",
+            "Howrah Station Bus Terminus"
+        ],
+        "status": "Active & Regular (High Passenger Volume Core Line)",
+        "type": "Private Standard"
+    },
+
+    //////////////////////////////// third ////////////////////////////////////
+
+    {
+        "no": "S-3B",
+        "path": [
+            "Behala 14 Number Bus Stand",
+            "Behala Thana",
+            "Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station",
+            "Mominpur",
+            "Ekbalpur Crossing",
+            "St. Thomas School",
+            "Khidirpur Market / Crossing",
+            "Hastings / P.T.S.",
+            "Princep Ghat",
+            "Babughat Bus Terminus",
+            "Eden Gardens",
+            "Akashvani Bhawan",
+            "Curzon Park / Esplanade",
+            "Raj Bhawan",
+            "Great Eastern",
+            "B.B.D. Bag (Dalhousie)",
+            "Air India Crossing",
+            "Central Metro Station",
+            "Central Avenue Crossing",
+            "Bowbazar",
+            "Medical College",
+            "Calcutta University",
+            "College Street",
+            "Amherst Street",
+            "Surya Sen Street",
+            "Jagat Cinema",
+            "Sealdah Railway Station",
+            "Rajabazar Tram Depot",
+            "Rajabazar Science College",
+            "Sukia Street",
+            "Manicktala Crossing",
+            "Bagmari Bazar",
+            "Kankurgachi Crossing"
+        ],
+        "status": "Active & Regular (High Passenger Volume Government Route)",
+        "type": "Government Ordinary (WBTC / CSTC Series)"
+    },
+
+    ////////////////////////// fourth ///////////////////////////////////////////
+
+    {
+        "no": "S-178",
+        "path": [
+            "Behala 14 No. Bus Stand",
+            "Behala Thana",
+            "Ajanta Cinema More",
+            "Taratala Junction",
+            "Majherhat Railway Station",
+            "Burdwan Road / Alipore State Bank",
+            "Alipore Court / Judges Court",
+            "Gopalnagar (Lalbati)",
+            "Kalighat",
+            "Hazra More",
+            "Bhowanipur Thana",
+            "Elgin Road Crossing",
+            "Exide More / Rabindra Sadan",
+            "Camac Street Crossing",
+            "Minto Park",
+            "Beckbagan",
+            "Kala Mandir / Mullick Bazar",
+            "Nonapukur Tram Depot",
+            "Jora Girja",
+            "Moulali More",
+            "NRS Medical College & Hospital",
+            "Sealdah Railway Station",
+            "Rajabazar Tram Depot"
+        ],
+        "status": "Active & Regular (One of the most stable surviving Minibus routes of Behala)",
+        "type": "Private Minibus"
+    },
+    
+    /////////////////////////////// fifth //////////////////////////////////////////////
+
+    {
+        "no": "18D",
+        "path": [
+            "Surya Sen Nagar Terminal",
+            "Sarsuna College",
+            "Kasthadanga Bazar",
+            "Sarsuna Bus Stand",
+            "Sarsuna Satyanarayan Mandir",
+            "Behala Bakultala",
+            "Behala Chowrasta",
+            "Behala 14 No. Bus Stand",
+            "Behala Thana / Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station",
+            "Mominpur More",
+            "Ekbalpur Crossing",
+            "Khidirpur Market",
+            "Hastings / P.T.S. More",
+            "Fort William / Maidan",
+            "Mayo Road",
+            "Esplanade / Dharmatala",
+            "Curzon Park",
+            "B.B.D. Bag (Dalhousie)",
+            "Strand Road / Fairlie Place",
+            "Burrabazar P.S.",
+            "Howrah Bridge (Rabindra Setu)",
+            "Howrah Station Bus Terminus"
+        ],
+        "status": "Active & Regular (Most reliable interior line for Sarsuna residents)",
+        "type": "Private Standard"
+    },
+
+    ///////////////////////////////////// sixth /////////////////////////////////////
+
+    {
+        "no": "222",
+        "path": [
+            "Bonhooghly Terminal (Dunlop / B.T. Road)",
+            "Tobin Road",
+            "Sinthee More",
+            "Chiria More",
+            "Paikpara",
+            "Tala Bridge",
+            "Shyambazar Five Point",
+            "Rajballavpara",
+            "Jagat Mukherjee Park",
+            "Sovabazar Metro",
+            "Girish Park Crossing (Central Avenue)",
+            "Jorasanko",
+            "Mahajati Sadan / Burrabazar",
+            "M.G. Road Crossing",
+            "Bowbazar",
+            "Chandni Chowk Metro",
+            "Esplanade / Dharmatala",
+            "Jeevandeep / Park Street",
+            "Chowringhee",
+            "Exide More / Rabindra Sadan",
+            "Nandan / Victoria Memorial",
+            "S.S.K.M. Hospital (P.G.)",
+            "P.T.S. (Police Training School)",
+            "Hastings Crossing",
+            "Khidirpur Market / Crossing",
+            "Ekbalpur Crossing",
+            "Mominpur More",
+            "Majherhat Railway Station (Jai Hind Setu)",
+            "Taratala Junction",
+            "Behala 14 No. Bus Stand",
+            "Behala Thana / Tram Depot",
+            "Behala Bazar / Manton",
+            "Behala Chowrasta Terminal"
+        ],
+        "status": "Active & Regular (High Passenger Volume Core Connector Route)",
+        "type": "Private Standard"
+    },
+
+    //////////////////////////// seventh //////////////////////////////
+
+    {
+        "no": "3D",
+        "path": [
+            "Sakherbazar Terminal (Behala)",
+            "Behala Chowrasta",
+            "Barisha",
+            "Manton",
+            "Behala Tram Depot",
+            "Behala Thana / Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station (Jai Hind Setu)",
+            "Mominpur More",
+            "Ekbalpur Crossing",
+            "Khidirpur Market / Crossing",
+            "Hastings Crossing",
+            "P.T.S. (Police Training School)",
+            "Race Course",
+            "Exide More / Rabindra Sadan",
+            "Maidan Metro Station",
+            "Park Street Crossing",
+            "Mayo Road",
+            "Esplanade / Dharmatala",
+            "Chandni Chowk",
+            "Wellington Crossing",
+            "Moulali More",
+            "Sealdah Railway Station",
+            "Rajabazar Tram Depot",
+            "Manicktala Crossing",
+            "Khanna More",
+            "Shyambazar Five Point Crossing",
+            "R.G. Kar Hospital",
+            "Belgachia Metro Station",
+            "Tala Park / Paikpara",
+            "Duttabagan More",
+            "Milk Colony Terminus (Destination)"
+        ],
+        "status": "Active (Reduced Frequency / Merged Route)",
+        "type": "Private Standard"
+    },
+
+
+    //////////////////////////// eigth //////////////////////////////////
+
+    {
+        "no": "S-45",
+        "path": [
+            "Shakuntala Park Terminal",
+            "Raidighi",
+            "Bakultala",
+            "Behala Chowrasta",
+            "Behala Tram Depot",
+            "Behala Thana / Ajanta Cinema",
+            "Taratala Junction",
+            "Majherhat Railway Station (Jai Hind Setu)",
+            "Mominpur",
+            "Ekbalpur Crossing",
+            "Alipore Zoo / National Library",
+            "P.T.S. (Police Training School)",
+            "S.S.K.M. Hospital (P.G.)",
+            "Rabindra Sadan / Exide More",
+            "Maidan Metro Station",
+            "Park Street Crossing",
+            "Jeevandeep / Mayo Road",
+            "Esplanade / Dharmatala",
+            "Wellington / Lenin Sarani",
+            "Moulali Crossing",
+            "NRS Medical College & Hospital",
+            "Sealdah Railway Station",
+            "Sealdah Jagat Cinema",
+            "Rajabazar Tram Depot",
+            "Rajabazar Science College",
+            "Sukiya Street",
+            "Manicktala Crossing",
+            "Khanna Cinema More",
+            "Fariapukur",
+            "Shyambazar Five Point Crossing",
+            "R.G. Kar Medical College & Hospital",
+            "Kolkata Railway Station Terminal (Chitpur)"
+        ],
+        "status": "Active (Regular Service / Majorly Active During Office Hours)",
+        "type": "Government Ordinary (WBTC / CSTC Series)"
+    },
+
+    ///////////////////////////////// NINETH ////////////////////////////////////////
+
+    {
+        "no": "AC-31",
+        "path": [
+            "Behala Chowrasta (Janakalyan High School)",
+            "Sakherbazar",
+            "James Long Sarani Crossing",
+            "Sitala Mandir",
+            "Kumarpara",
+            "Sodepur (Behala)",
+            "Muchipara",
+            "Siriti More",
+            "Karunamoyee (Tollygunge)",
+            "Tollygunge Tram Depot",
+            "Tollygunge Metro Station",
+            "M.R. Bangur Hospital",
+            "Prince Anwar Shah Road",
+            "Lake Gardens",
+            "Lord's More",
+            "South City Mall",
+            "Jadavpur P.S.",
+            "Jadavpur University",
+            "Jadavpur 8B Terminus"
+        ],
+        "status": "Active & Regular (High Passenger Demand Route)",
+        "type": "Government AC (WBTC / Thakurpukur Depot)"
+    },
+
+    /////////////////////////////// Tenth //////////////////////////////////////////////////
+    {
+        "no": "S-4D",
+        "path": [
+            "Parnasree Terminus",
+            "Behala College",
+            "Behala Chowrasta",
+            "Behala 14 No. Bus Stand",
+            "Behala Thana / Ajanta Cinema",
+            "Taratala Junction",
+            "New Alipore Crossing",
+            "Durgapur Bridge",
+            "Tollygunge Phari",
+            "M.R. Bangur Hospital",
+            "Tollygunge Metro Station",
+            "Prince Anwar Shah Road",
+            "Lake Gardens Flyover",
+            "Lord's More",
+            "South City Mall",
+            "Jadavpur P.S.",
+            "Jadavpur 8B Bus Stand",
+            "Sukanta Setu",
+            "Santoshpur Battala",
+            "Avishikta Crossing",
+            "Kalikapur (E.M. Bypass)",
+            "Ruby General Hospital",
+            "VIP Bazar",
+            "Tagore Park",
+            "Science City",
+            "Metropolitan",
+            "Chingrighata Junction",
+            "Nicco Park More",
+            "Swasthya Bhawan",
+            "SDF More (Salt Lake Sector V)",
+            "College More",
+            "Technopolis",
+            "Mahishbathan Bridge",
+            "Nazrul Tirtha",
+            "Newtown Bus Stand / Axis Mall",
+            "Narkelbagan (Biswa Bangla Gate)",
+            "Unitech / Tata Medical Center",
+            "Eco Space Business Park (Terminal Destination)"
+        ],
+        "status": "Active (Peak Hours / Office Timings)",
+        "type": "WBTC Ordinary (Government Series)"
+    },
+    
+    /////////////////////////////////// elventh ////////////////////////////////////
+
+    
+    {
+        no: "171",
+        path: [
+            "Salt Lake Karunamoyee Terminus",
+            "Kwality More",
+            "Baisakhi",
+            "PNB More",
+            "Saltlake Gate",
+            "Ultadanga / Hudco More",
+            "Bidhannagar Station",
+            "Gouribari More",
+            "Khanna Cinema More",
+            "Maniktala Crossing",
+            "Rajabazar Tram Depot",
+            "Sealdah Court",
+            "NRS Hospital",
+            "Sealdah Station",
+            "Moulali Crossing",
+            "Nonapukur Tram Depot",
+            "Mullick Bazar",
+            "Minto Park Bypass",
+            "Exide / Rabindra Sadan",
+            "Ashutosh College",
+            "Hazra More",
+            "Kalighat Metro",
+            "Sishu Mangal Hospital",
+            "Rashbehari Crossing",
+            "Chetla Central Road",
+            "New Alipore Block M",
+            "Manton More",
+            "Behala Chowrasta"
+        ],
+        status: "Active & Regular (Crucial East-West Connection)",
+        type: "Private Minibus"
+    },
+
+
+    ////////////////////// TWELVTH ///////////////////////////////////
+
+    {
+        "no": "E4",
+        "path": [
+            "Parnasree Bus Terminus",
+            "Parnasree Lake",
+            "Behala 14 No.",
+            "Taratala Depot More",
+            "Majherhat",
+            "Mominpore",
+            "Khidirpur More",
+            "Hastings Crossing",
+            "Fort William",
+            "Mayo Road",
+            "Esplanade / Dharmatala",
+            "Curzon Park",
+            "BBD Bag / Dalhousie",
+            "Burrabazar",
+            "Howrah Station Bus Terminus"
+        ],
+        "status": "Active & Regular (High Commuter Demand)",
+        "type": "Government NON-AC  (WBTC)"
+    },
+
+    {
+        "no": "E4 ( Parnashree - Howrah)",
+        "path": [
+            "Howrah Station Bus Terminus",
+            "Howrah Bridge",
+            "Burrabazar P.S.",
+            "Poddar Court",
+            "Central Avenue",
+            "Esplanade / Dharmatala",
+            "Curzon Park",
+            "Mayo Road",
+            "Fort William",
+            "Hastings Crossing",
+            "Khidirpur More",
+            "Mominpore",
+            "Majherhat",
+            "Taratala Depot More",
+            "Behala 14 No.",
+            "Parnasree Lake",
+            "Parnasree Bus Terminus"
+        ],
+        "status": "Active & Regular (High Commuter Demand)",
+        "type": "Government NON- AC  (WBTC)"
+    },
+
+
+    ////////////////////////////// thirteen ////////////////////////////
+
+    {
+        no: "S21",
+        path: [
+            "Bagbazar Bata",
+            "Rajballavpara",
+            "Shyambazar 5 Point Crossing",
+            "Fariapukur",
+            "Khanna More",
+            "Gouribari",
+            "Bidhannagar Road Station",
+            "Ultadanga HUDCO More",
+            "Kankurgachi Crossing",
+            "Phoolbagan Metro",
+            "Beleghata Building More",
+            "Chingrighata Crossing",
+            "Science City Crossing",
+            "VIP Bazar",
+            "Ruby Hospital",
+            "Kalikapur",
+            "Mukundapur",
+            "Ajaynagar",
+            "Hiland Park",
+            "Patuli",
+            "Baishnabghata",
+            "Garia 6No. Terminus"
+        ],
+        "type": "Government (WBTC)",
+        "status": "Active & Regular",
+    },
+    {
+        no: "S21",
+        path: [
+            "Garia 6No. Terminus",
+            "Baishnabghata",
+            "Patuli",
+            "Hiland Park",
+            "Ajaynagar",
+            "Mukundapur",
+            "Kalikapur",
+            "Ruby Hospital",
+            "VIP Bazar",
+            "Science City Crossing",
+            "Chingrighata Crossing",
+            "Beleghata Building More",
+            "Phoolbagan Metro",
+            "Kankurgachi Crossing",
+            "Ultadanga HUDCO More",
+            "Khanna More",
+            "Gouribari",
+            "Manindra Chandra College",
+            "Shyambazar Metro",
+            "Rajballavpara",
+            "Bagbazar Bata"
+        ],
+        "type": "Government (WBTC)",
+        "status": "Active & Regular",
+    },
+    
+    
+    
+    
+    
+    
+    
+]
