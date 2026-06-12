@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerSubtext = document.getElementById("drawer-subtext");
 
 
-
+  const API_BASE = "https://kolkata-transport-app.onrender.com";
 
 
   // OpenStreetMap raster tiles (free, no API key)
@@ -529,9 +529,11 @@ document.addEventListener("DOMContentLoaded", () => {
         body.toNodeId = drawerToInput.dataset.nodeId;
       }
 
-      const res = await fetch("/api/route", {
+      const res = await fetch(`${API_BASE}/api/route`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(body)
       });
 
