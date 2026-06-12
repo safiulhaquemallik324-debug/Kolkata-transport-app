@@ -1428,7 +1428,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const autocompleteInstances = [];
 
   async function fetchSuggestions(query) {
-    let url = `/api/suggest?q=${encodeURIComponent(query)}`;
+    let url = `${API_BASE}/api/suggest?q=${encodeURIComponent(query)}`;
     if (state.currentUserLocation) {
       url += `&lat=${state.currentUserLocation.lat}&lng=${state.currentUserLocation.lng}`;
     }
