@@ -863,7 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showTypingIndicator();
 
     try {
-      const res = await fetch("/api/route/chat", {
+      const res = await fetch(`${API_BASE}/api/route/chat`,  {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -1360,7 +1360,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showTypingIndicator();
 
       try {
-        const res = await fetch("/api/route/chat", {
+        const res = await fetch(`${API_BASE}/api/route/chat`,  {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question, route, from, to })
