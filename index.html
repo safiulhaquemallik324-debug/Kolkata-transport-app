@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolkata AI - Smart, Safe, Seamless Transit Planner</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <button type="button" id="mobile-sheet-toggle" class="mobile-sheet-toggle" aria-expanded="false"
+        aria-label="Show or hide route options">
+        <span class="sheet-handle" aria-hidden="true"></span>
+        <span class="sheet-toggle-label">Route Options</span>
+      </button>
+
+      <!-- Logo and Theme Toggle -->
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <!-- Map Pin SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div class="logo-text">
+            <h1>Kolkata AI</h1>
+            <p>Smart. Safe. Seamless.</p>
+          </div>
+        </div>
+
+        <!-- Sun/Moon Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme"
+          aria-label="Toggle dark and light theme">
+          <svg id="theme-icon-sun" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Secure Verification Badge -->
+      <div class="secure-badge">
+        SECURE API CONNECTION: ACTIVE
+      </div>
+
+      <!-- Voice Enabled Search / Destination Query -->
+      <div class="search-wrapper">
+        <input type="text" id="search-input" class="search-box"
+          placeholder="Where to in Kolkata? (e.g. Jadavpur to Amity)" autocomplete="off">
+        <div class="search-icons">
+          <button id="voice-search-btn" class="voice-btn" title="Ask Voice Assistant" aria-label="Search by voice">
+            <!-- Mic SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Popular Kolkata Database Hubs -->
+      <div class="hubs-tag-container">
+        <div class="console-header" style="color: var(--accent-blue); margin-bottom: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+          Kolkata Database Hubs
+        </div>
+        <div class="hub-tags">
+          <span class="hub-tag" data-hub="Howrah Station">Howrah Station</span>
+          <span class="hub-tag" data-hub="Salt Lake Sector V">Sector V</span>
+          <span class="hub-tag" data-hub="Karunamoyee">Karunamoyee</span>
+          <span class="hub-tag" data-hub="Esplanade">Esplanade</span>
+          <span class="hub-tag" data-hub="Jadavpur University">Jadavpur JU</span>
+          <span class="hub-tag" data-hub="Amity University">Amity Univ</span>
+        </div>
+      </div>
+
+      <!-- 2D Route Description Console (Google Styling) -->
+      <div class="console-box">
+        <div class="console-header">
+          <!-- Terminal/Route SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            <path d="M20 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            <path d="M14 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            <path d="M14 22a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            <path d="M20 12H14" />
+            <path d="M4 12h6a2 2 0 0 0 2-2V6" />
+          </svg>
+          2D Route Description
+        </div>
+        <div id="console-steps-list" class="console-steps">
+          <!-- Default Mock Steps (Howrah to Sector V) -->
+          <div class="console-step-item">
+            <div class="console-step-bullet"></div>
+            <div class="console-step-text">Take Bus #215 from <strong>Howrah Station</strong></div>
+          </div>
+          <div class="console-step-item">
+            <div class="console-step-bullet"></div>
+            <div class="console-step-text">Transfer at <strong>Sealdah</strong> to Metro Line 1</div>
+          </div>
+          <div class="console-step-item">
+            <div class="console-step-bullet"></div>
+            <div class="console-step-text">Arrive at <strong>Salt Lake Sector V</strong></div>
+          </div>
+        </div>
+        <div id="console-route-list" class="console-route-list" style="display:none;"></div>
+        <button id="ai-alt-route-btn" class="ai-alt-route-btn" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 1 21 5 17 9" />
+            <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+            <polyline points="7 23 3 19 7 15" />
+            <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+          </svg>
+         See Other Alternative Routes
+        </button>
+        <div id="schedule-box" class="schedule-box" style="display:none;"></div>
+        <div class="ai-chat-box">
+          <div id="ai-chat-log" class="ai-chat-log">
+            <div class="ai-chat-empty">Ask a route doubt after selecting a vehicle.</div>
+          </div>
+          <div class="ai-chat-input-row">
+            <input id="ai-chat-input" class="ai-chat-input" type="text" placeholder="Ask about this route..."
+              autocomplete="off">
+            <button id="ai-chat-send" class="ai-chat-send" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fare Breakdown Box -->
+      <div id="fare-breakdown-box" class="fare-breakdown-box" style="display:none;"></div>
+      <!-- Nearby Stops Section -->
+      <div class="nearby-section">
+        <button id="nearby-btn" class="nearby-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Nearby Stops
+        </button>
+        <div id="nearby-list" class="nearby-list" style="display:none;"></div>
+      </div>
+
+      <!-- Smart Route Options Title -->
+      <div class="options-title">
+        <span>Smart Route Options</span>
+        <span class="live-indicator">LIVE</span>
+      </div>
+
+      <!-- Smart Route Cards (Metro, Bus, Auto, Rail, Cab) -->
+      <div id="route-cards-container" class="route-cards-list">
+        <!-- Metro Card (Preloaded) -->
+        <div class="route-card active" data-index="0">
+          <div class="card-left">
+            <div class="card-icon metro">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="16" height="16" x="4" y="4" rx="2" />
+                <path d="M12 8h.01" />
+                <path d="M9 16h6" />
+                <path d="M8 12h8" />
+                <path d="m14 8-2 2-2-2" />
+              </svg>
+            </div>
+            <div class="card-info">
+              <h3>Metro <span class="best-choice-badge">Best Choice</span></h3>
+              <div class="card-tags">
+                <span class="card-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  Verified Vehicle
+                </span>
+                <span class="card-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 12 2 2 4-4" />
+                    <circle cx="12" cy="12" r="10" />
+                  </svg>
+                  Safe Route
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-time">28<span>min</span></div>
+            <div class="card-price">₹30</div>
+          </div>
+          <div class="arrow-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Bus Card (Preloaded) -->
+        <div class="route-card" data-index="1">
+          <div class="card-left">
+            <div class="card-icon bus">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7c0 .6.4 1 1 1h2" />
+                <circle cx="7" cy="17" r="2" />
+                <path d="M9 17h6" />
+                <circle cx="17" cy="17" r="2" />
+              </svg>
+            </div>
+            <div class="card-info">
+              <h3>Bus</h3>
+              <div class="card-tags">
+                <span class="card-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  Verified Vehicle
+                </span>
+                <span class="card-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 12 2 2 4-4" />
+                    <circle cx="12" cy="12" r="10" />
+                  </svg>
+                  Safe Route
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-time">45<span>min</span></div>
+            <div class="card-price">₹15</div>
+          </div>
+          <div class="arrow-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer details -->
+      <footer class="sidebar-footer">
+        <span>Data Privacy Guaranteed</span>
+        <span>v4.2.0-SECURE</span>
+      </footer>
+    </aside>
+
+    <!-- RIGHT SIDE MAP AND WIDGETS -->
+    <main class="map-section" id="map-section">
+
+      <!-- TOP JOURNEY INPUT BAR (mobile/tablet wireframe) -->
+      <section id="journey-drawer" class="journey-drawer visible">
+        <div class="drawer-grid">
+
+          <!-- Flow Labels -->
+          <div class="drawer-route-flow">
+            <div class="flow-node">
+              <span class="node-label">FROM</span>
+              <input type="text" id="drawer-from-input" class="drawer-input" value="Howrah Station"
+                placeholder="Start Location" autocomplete="off">
+              <div id="from-suggestions" class="suggestions-box" role="listbox" aria-label="From location suggestions">
+              </div>
+            </div>
+
+
+            <button id="swapBtn" class="swap-btn">⇅</button>
+
+            <div class="flow-node">
+              <span class="node-label">TO</span>
+              <input type="text" id="drawer-to-input" class="drawer-input" value="Salt Lake Sector V"
+                placeholder="Destination" autocomplete="off">
+              <div id="to-suggestions" class="suggestions-box" role="listbox" aria-label="To location suggestions">
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats block -->
+          <div class="drawer-stats">
+            <div class="stat-item">
+              <div class="stat-val" id="drawer-time">28<span>min</span></div>
+              <div class="stat-desc">Duration</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" id="drawer-distance">9.8<span>km</span></div>
+              <div class="stat-desc">Distance</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" id="drawer-fare">₹30</div>
+              <div class="stat-desc">Est. Fare</div>
+            </div>
+          </div>
+
+          <!-- Start Journey Action -->
+          <div class="drawer-actions">
+            <button id="start-journey-btn" class="start-journey-btn">
+              <span>Start Journey</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Drawer security footer details -->
+        <div class="drawer-footer-info">
+          <span id="drawer-subtext">🚇 Metro Route • On-time • Updated 2 mins ago</span>
+          <span class="verified">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Security Verified Route
+          </span>
+        </div>
+      </section>
+
+      <!-- Floating Map Header Widgets -->
+      <header class="map-header">
+        <!-- Weather & Time Widget -->
+        <div class="header-left">
+          <div class="weather-widget" id="weather-widget">
+            <span class="weather-icon" id="weather-icon">☀</span>
+            <span id="weather-temp">29°C</span>
+            <div class="weather-divider"></div>
+            <span id="live-clock" class="clock-text">10:30 AM</span>
+          </div>
+
+          <!-- Live Traffic Dropdown -->
+          <div class="traffic-select-wrapper">
+            <select id="traffic-select" class="glass-dropdown">
+              <option value="live">🟢 Live Traffic</option>
+              <option value="moderate">🟡 Moderate Traffic</option>
+              <option value="heavy">🔴 Heavy Traffic</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 3D & Layer buttons -->
+        <div class="header-right">
+          <!-- 3D Toggle button -->
+          <button id="toggle-3d-btn" class="glass-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21 16-9 5-9-5V8l9-5 9 5v8z" />
+              <path d="M12 21V12" />
+              <path d="M12 12 3 7" />
+              <path d="M12 12l9-7" />
+            </svg>
+            3D View
+          </button>
+
+          <!-- Compass — reset map to North -->
+          <button id="compass-btn" class="glass-btn compass-widget" title="Reset map to North"
+            aria-label="Compass — reset to North">
+            <div class="compass-dial" id="compass-dial" aria-hidden="true">
+              <svg class="compass-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.35" />
+                <polygon points="12,4 14,11 12,9 10,11" fill="#ef4444" />
+                <polygon points="12,20 14,13 12,15 10,13" fill="currentColor" opacity="0.45" />
+                <text x="12" y="7.5" text-anchor="middle" fill="#ef4444" font-size="4.5" font-weight="700"
+                  font-family="Inter,sans-serif">N</text>
+              </svg>
+            </div>
+            <span class="compass-label">North</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Live Navigation Guidance HUD Overlay -->
+      <div id="navigation-hud" class="hud-panel">
+        <div class="hud-direction-icon" id="hud-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5" />
+            <path d="M5 12l7-7 7 7" />
+          </svg>
+        </div>
+        <div class="hud-text">
+          <div id="hud-instruction" class="hud-instruction">In 200m, turn left at Sealdah Cross</div>
+          <div id="hud-distance" class="hud-distance-left">Remaining: 4.8 km (12 mins)</div>
+        </div>
+      </div>
+
+      <!-- Leaflet Map Container Wrapper -->
+      <div class="map-wrapper" id="map-wrapper">
+        <div class="map-3d-stage" id="map-3d-stage">
+          <div id="map"></div>
+        </div>
+        <p class="map-3d-hint" id="map-3d-hint" aria-hidden="true">Shift + drag to rotate view</p>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Leaflet Javascript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Custom Logic Application Javascript -->
+  <script src="/app.js"></script>
+</body>
+
+</html>
