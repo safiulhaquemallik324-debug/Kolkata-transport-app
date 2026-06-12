@@ -721,7 +721,7 @@ document.addEventListener("DOMContentLoaded", () => {
     aiBriefBox.textContent = "Preparing route brief...";
 
     try {
-      const res = await await fetch(`${API_BASE}/api/brief`, {
+      const res = await fetch(`${API_BASE}/api/brief`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
