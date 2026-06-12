@@ -721,7 +721,7 @@ document.addEventListener("DOMContentLoaded", () => {
     aiBriefBox.textContent = "Preparing route brief...";
 
     try {
-      const res = await fetch("/api/brief", {
+      const res = await await fetch(`${API_BASE}/api/brief`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -912,13 +912,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="schedule-loading">Schedule information is loading...</div>
   `;
 
-    try {
-      const res = await fetch(
-        `/api/route/schedule?mode=${encodeURIComponent(route.mode)}&line=${encodeURIComponent(lineName)}&from=${encodeURIComponent(state.activeRouteData?.from || "")}&to=${encodeURIComponent(state.activeRouteData?.to || "")}`
-      );
-      if (!res.ok) {
-        throw new Error(`Schedule API failed: ${res.status}`);
-      }
+      try {
+        const res = await fetch(
+          `${API_BASE}/api/route/schedule?mode=${encodeURIComponent(route.mode)}&line=${encodeURIComponent(lineName)}&from=${encodeURIComponent(state.activeRouteData?.from || "")}&to=${encodeURIComponent(state.activeRouteData?.to || "")}`
+        );
+      
+        if (!res.ok) {
+          throw new Error(`Schedule API failed: ${res.status}`);
+        }
 
       const data = await res.json();
 
@@ -1693,10 +1694,10 @@ document.addEventListener("DOMContentLoaded", () => {
     nearbyBtn.textContent = "Loading...";
     try {
       const res = await fetch(
-        `/api/nearby?lat=${state.currentUserLocation.lat}&lng=${state.currentUserLocation.lng}&radius=1.5`
+        `${API_BASE}/api/nearby?lat=${state.currentUserLocation.lat}&lng=${state.currentUserLocation.lng}&radius=1.5`
       );
+    
       const stops = await res.json();
-
       nearbyActive = true;
       nearbyBtn.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
