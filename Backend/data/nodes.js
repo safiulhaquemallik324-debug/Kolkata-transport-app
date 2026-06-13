@@ -56,7 +56,7 @@ export const nodes = {
     lon: 88.3681,
     name: "Park Circus Crossing",
     desc: "Major crossing near Quest Mall & rail station",
-    aliases: ["park circus", "park circus begbagan", "park circus crossing" ]
+    aliases: ["park circus", "park circus begbagan", "park circus crossing"]
   },
 
   "Bagbazar": {
@@ -131,7 +131,18 @@ export const nodes = {
     lat: 22.5192,
     lon: 88.3680,
     name: "Gariahat Junction",
-    desc: "South Kolkata retail hub & bus node"
+    desc: "South Kolkata retail hub & major bus junction",
+    aliases: [
+      "gariahat",
+      "gariahat junction",
+      "gariahat more",
+      "gariahat crossing",
+      "gariahat market",
+      "gariahat bus stand",
+      "gariahat mor",
+      "gariahat golpark",
+      "golpark gariahat"
+    ]
   },
 
   "Jadavpur": {
@@ -2329,6 +2340,21 @@ export const nodes = {
       "ajaynagar crossing",
       "ajaynagar more",
       "ajaynagar e.m. bypass"
+    ]
+  },
+
+  "Ballygunge Phari": {
+    lat: 22.5278,
+    lon: 88.3662,
+    name: "Ballygunge Phari",
+    desc: "Major South Kolkata junction connecting Gariahat, Rashbehari Avenue and Ballygunge areas",
+    aliases: [
+      "ballygunge phari",
+      "ballygunge fari",
+      "ballygunge phari crossing",
+      "phari",
+      "gariahat phari",
+      "ballygunge police phari"
     ]
   },
 
