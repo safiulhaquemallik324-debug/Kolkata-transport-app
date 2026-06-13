@@ -899,12 +899,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Line name detect
-    let lineName = "";
-
     if (mode === "metro") {
       lineName = route.allRoutes?.[0]?.id || route.name || "";
     } else {
-      lineName = route.name || route.allRoutes?.[0]?.id || "";
+      lineName = route.allRoutes?.[0]?.id || route.name || "";
     }
 
     scheduleBox.style.display = "block";
