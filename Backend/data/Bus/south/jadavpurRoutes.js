@@ -679,7 +679,7 @@ export const jadavpurRoutes = [
             "Gariahat",
             "Ballygunge Phari",
             "Park Circus More",
-            "Park Circus 7 point",
+            "park circus 7 point",
             "CNMCH (Chittaranjan Hospital)",
             "CIT Road",
             "Anandapalit",

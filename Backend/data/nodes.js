@@ -56,7 +56,7 @@ export const nodes = {
     lon: 88.3681,
     name: "Park Circus Crossing",
     desc: "Major crossing near Quest Mall & rail station",
-    aliases: ["park circus", "park circus begbagan", "park circus crossing"]
+    aliases: ["park circus", "park circus begbagan", "park circus crossing" ]
   },
 
   "Bagbazar": {
