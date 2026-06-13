@@ -886,8 +886,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  async function fetchAndShowSchedule(route) 
-  console.log("SCHEDULE ROUTE:", route.mode, route.name, route.allRoutes);{
+  async function fetchAndShowSchedule(route) {
+    console.log("SCHEDULE ROUTE:", route.mode, route.name, route.allRoutes);
     const scheduleBox = document.getElementById("schedule-box");
     if (!scheduleBox) return;
 
