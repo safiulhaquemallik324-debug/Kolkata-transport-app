@@ -169,7 +169,7 @@ export const nodes = {
   "Sonarpur": {
     lat: 22.4337,
     lon: 88.4236,
-    name: "Sonarpur Junction",
+    name: "Sonarpur",
     desc: "Suburban rail junction, south-east"
   },
 
@@ -1158,6 +1158,20 @@ export const nodes = {
       "beleghata id hospital",
       "infectious diseases hospital",
       "id hospital beleghata"
+    ]
+  },
+
+  "Sonarpur Junction": {
+    "lat": 22.4427,
+    "lon": 88.4309,
+    "name": "Sonarpur Junction",
+    "desc": "Major railway junction connecting Canning and Diamond Harbour suburban lines",
+    "aliases": [
+      "sonarpur",
+      "sonarpur station",
+      "sonarpur junction",
+      "sonarpur junction station",
+      "spr"
     ]
   },
 
@@ -2420,7 +2434,7 @@ export const nodes = {
   "Baruipur Junction": {
     "lat": 22.3625,
     "lon": 88.4328,
-    "name": "Baruipur Station",
+    "name": "Baruipur Junction",
     "desc": "Crucial multi-platform south division junction branching out towards Diamond Harbour and Namkhana lines.",
     "aliases": ["baruipur", "baruipur junction", "baruipur station", "byp", "baruipur railway station"]
   },
@@ -3110,7 +3124,7 @@ export const nodes = {
     "desc": "Upscale residential and commercial area south of Alipore, connected by Buroshibtala Main Road and New Alipore Station",
     "aliases": ["new alipore", "new alipore crossing", "new alipore triangular park"]
   },
-  
+
   "Chetla": {
     "lat": 22.5165,
     "lon": 88.3392,
