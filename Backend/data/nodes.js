@@ -2400,20 +2400,6 @@ export const nodes = {
     ]
   },
 
-  "Sonarpur Junction Station": {
-    "lat": 22.4427,
-    "lon": 88.4309,
-    "name": "Sonarpur Junction Station",
-    "desc": "Major railway junction connecting Canning and Diamond Harbour suburban lines",
-    "aliases": [
-      "sonarpur",
-      "sonarpur junction",
-      "sonarpur station",
-      "sonarpur junction station",
-      "sonarpur railway station",
-      "spr"
-    ]
-  },
 
   "Subhasgram Station": {
     "lat": 22.4167,
