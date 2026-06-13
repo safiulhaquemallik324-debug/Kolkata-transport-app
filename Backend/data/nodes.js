@@ -1702,7 +1702,7 @@ export const nodes = {
   "Airport": {
     lat: 22.6547,
     lon: 88.4467,
-    name: "NSCBI Airport",
+    name: "Airport",
     desc: "Netaji Subhas Chandra Bose International Airport (CCU), Kolkata",
     aliases: [
       "airport",
