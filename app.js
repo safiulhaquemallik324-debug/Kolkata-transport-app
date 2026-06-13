@@ -72,6 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const API_BASE = "https://kolkata-transport-app.onrender.com";
 
 
+  ///// wake backend when page loads
+  window.addEventListener("load", async () =>{
+    try {
+      await fetch (`${API_BASE}/api/suggest?q=kolkata`);
+      console.log("Backend awake");
+    }  catch (e) {
+      console.log("Backend waking.....");
+    }
+  });
+
+
   // OpenStreetMap raster tiles (free, no API key)
   function createTileLayer(styleKey) {
     const cfg = state.tiles[styleKey];
