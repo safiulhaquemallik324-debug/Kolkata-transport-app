@@ -741,6 +741,7 @@ export const jadavpurRoutes = [
             "CIT Road",
             "CNMCH (Chittaranjan Hospital)",
             "Park Circus More",
+            "park circus 7 point",
             "Quest Mall",
             "Ballygunge Phari",
             "Gariahat Tram Depot",
