@@ -2439,6 +2439,19 @@ export const nodes = {
     "aliases": ["baruipur", "baruipur junction", "baruipur station", "byp", "baruipur railway station"]
   },
 
+  "Sealdah Station": {
+    "lat": 22.5653,
+    "lon": 88.3708,
+    "name": "Sealdah Station",
+    "desc": "Major railway terminal in Central Kolkata",
+    "aliases": [
+      "sealdah",
+      "sealdah station",
+      "sealdah railway station",
+      "sdah"
+    ]
+  },
+
   "Dakshin Barasat Station": {
     "lat": 22.2264,
     "lon": 88.4525,
