@@ -148,53 +148,53 @@ export const trainRoutes = {
 
   ////////// canning line (Corrected Route) ///////////////////
   "Sealdah_Canning_Line": [
-    "Sealdah station",
-    "Park Circus station",
-    "Ballygunge station",
-    "Dhakuria station",
-    "Jadavpur station",
-    "Baghajatin station",
-    "New Garia station",
-    "Narendrapur station",
-    "Sonarpur Junction",
-    "Piali station",
-    "Ghotiadari Sharif station",
-    "Canning station"
+    "Sealdah Station",
+    "Park Circus Station",
+    "Ballygunge Station",
+    "Dhakuria Station",
+    "Jadavpur Station",
+    "Baghajatin Station",
+    "New Garia Station",
+    "Narendrapur Station",
+    "Sonarpur Junction Station",
+    "Piali Station",
+    "Ghutiari Sharif Station",
+    "Canning Station"
   ],
 
   ///////// diamond-harbor line ///////////////////
   "Diamond_Harbour_Line": [
-    "Sealdah station",
-    "Park Circus station",
-    "Ballygunge station",
-    "Dhakuria station",
-    "Jadavpur station",
-    "Baghajatin station",
-    "New Garia station",
-    "Narendrapur station",
-    "Sonarpur Junction",
-    "Subhasgram station",
-    "Mallikpur station",
-    "Baruipur station",
-    "Dakshin Barasat station",
-    "Joynagar Majilpur station",
-    "Diamond Harbour station"
+    "Sealdah Station",
+    "Park Circus Station",
+    "Ballygunge Station",
+    "Dhakuria Station",
+    "Jadavpur Station",
+    "Baghajatin Station",
+    "New Garia Station",
+    "Narendrapur Station",
+    "Sonarpur Junction Station",
+    "Subhasgram Station",
+    "Mallikpur Station",
+    "Baruipur Junction",
+    "Dakshin Barasat Station",
+    "Joynagar Majilpur Station",
+    "Diamond Harbour Station"
   ],
 
   /// sealdah south line (Baruipur Added) ///////////////////
   "Sealdah_South_Line": [
-    "Sealdah station",
-    "Park Circus station ",
-    "Ballygunge station",
-    "Dhakuria station",
-    "Jadavpur station",
-    "Baghajatin station",
-    "New Garia station",
-    "Narendrapur station",
-    "Sonarpur Junction",
-    "Subhasgram station",
-    "Mallikpur station",
-    "Baruipur Station"
+    "Sealdah Station",
+    "Park Circus Station",
+    "Ballygunge Station",
+    "Dhakuria Station",
+    "Jadavpur Station",
+    "Baghajatin Station",
+    "New Garia Station",
+    "Narendrapur Station",
+    "Sonarpur Junction Station",
+    "Subhasgram Station",
+    "Mallikpur Station",
+    "Baruipur Junction"
   ],
 
   ////// Sealdah ranagat line //////////////////////////

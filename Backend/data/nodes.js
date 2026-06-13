@@ -2431,7 +2431,7 @@ export const nodes = {
     "aliases": ["mallikpur", "mallikpur station", "mallikpur railway station", "mak"]
   },
 
-  "Baruipur Station": {
+  "Baruipur Junction": {
     "lat": 22.3625,
     "lon": 88.4328,
     "name": "Baruipur Station",
