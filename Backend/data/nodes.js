@@ -1375,7 +1375,12 @@ export const nodes = {
     lon: 88.4080,
     name: "Patuli",
     desc: "South-east Kolkata residential & work belt",
-    aliases: ["patuli", "patuli more"]
+    aliases: ["patuli", "patuli more",  "patuli crossing",
+      "patuli palki bus terminus",
+      "palki bus terminus",
+      "patuli bus terminus",
+      "patuli (palki) bus terminus",
+    ]
   },
   "Salt_Lake_Sector_I": {
     lat: 22.5860,
@@ -1709,7 +1714,7 @@ export const nodes = {
       "airport terminal",
       "airport terminal ccu",
       "airport gate 1",
-      "airport gate no 1",
+      "Airport Gate No. 1",
       "airport gate 2",
       "airport gate no 2",
       "airport gate 3",

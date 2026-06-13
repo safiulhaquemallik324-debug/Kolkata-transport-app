@@ -673,7 +673,7 @@ export const jadavpurRoutes = [
             "Baghajatin More",
             "Sulekha More",
             "Jadavpur 8B Bus Stand",
-            "Jadavpur University",
+            "Jadavpur_University",
             "Jadavpur Thana",
             "Dhakuria",
             "Golpark",

@@ -87,6 +87,9 @@ export function buildGraph() {
 // BUS — oneway flag check ///
 
 for (const route of busRoutes) {
+  if (route.no === "45") {
+    console.log("FOUND 45 ROUTE:", route);
+  }
   for (let i = 0; i < route.path.length - 1; i++) {
     const edge = {
       mode: "Bus",
