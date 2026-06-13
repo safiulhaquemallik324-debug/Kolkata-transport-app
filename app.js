@@ -888,89 +888,97 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchAndShowSchedule(route) {
     console.log("SCHEDULE ROUTE:", route.mode, route.name, route.allRoutes);
+  
     const scheduleBox = document.getElementById("schedule-box");
     if (!scheduleBox) return;
-
+  
     const mode = String(route.mode || "").toLowerCase();
-
+  
     if (!["metro", "rail", "train", "local train", "railway"].includes(mode)) {
       scheduleBox.style.display = "none";
       return;
     }
-
-    // Line name detect
-    if (mode === "metro") {
-      lineName = route.allRoutes?.[0]?.id || route.name || "";
-    } else {
-      lineName = route.allRoutes?.[0]?.id || route.name || "";
-    }
-
+  
+    const lineName = route.allRoutes?.[0]?.id || route.name || "";
+    console.log("SCHEDULE LINE:", lineName);
+  
     scheduleBox.style.display = "block";
     scheduleBox.innerHTML = `
-    <div class="schedule-title">
-      <span class="schedule-mode-badge ${route.mode.toLowerCase()}">${route.mode}</span>
-      Next Train / Metro
-    </div>
-    <div class="schedule-loading">Schedule information is loading...</div>
-  `;
-
-      try {
-        const res = await fetch(
-          `${API_BASE}/api/route/schedule?mode=${encodeURIComponent(route.mode)}&line=${encodeURIComponent(lineName)}&from=${encodeURIComponent(state.activeRouteData?.from || "")}&to=${encodeURIComponent(state.activeRouteData?.to || "")}`
-        );
-      
-        if (!res.ok) {
-          throw new Error(`Schedule API failed: ${res.status}`);
-        }
-
+      <div class="schedule-title">
+        <span class="schedule-mode-badge ${mode}">${route.mode}</span>
+        Next Train / Metro
+      </div>
+      <div class="schedule-loading">Schedule information is loading...</div>
+    `;
+  
+    try {
+      const url = `${API_BASE}/api/route/schedule?mode=${encodeURIComponent(route.mode)}&line=${encodeURIComponent(lineName)}&from=${encodeURIComponent(state.activeRouteData?.from || "")}&to=${encodeURIComponent(state.activeRouteData?.to || "")}`;
+  
+      console.log("SCHEDULE API URL:", url);
+  
+      const res = await fetch(url);
+  
+      if (!res.ok) {
+        throw new Error(`Schedule API failed: ${res.status}`);
+      }
+  
       const data = await res.json();
-
-      const peakHoursText = Array.isArray(data.peakHours)
-        ? data.peakHours
-          .map(([s, e]) => `${String(s).padStart(2, "0")}:00–${String(e).padStart(2, "0")}:00`)
-          .join(", ")
-        : "Not available";
-
-      if (!data.trains?.length) {
-        scheduleBox.innerHTML = `<div class="schedule-empty">Schedule information is not available for this route.</div>`;
+      console.log("SCHEDULE DATA:", data);
+  
+      if (!data.trains || data.trains.length === 0) {
+        scheduleBox.innerHTML = `
+          <div class="schedule-empty">
+            Schedule information is not available for this route.
+          </div>
+        `;
         return;
       }
-
+  
+      const peakHoursText = Array.isArray(data.peakHours)
+        ? data.peakHours
+            .map(([s, e]) => `${String(s).padStart(2, "0")}:00–${String(e).padStart(2, "0")}:00`)
+            .join(", ")
+        : "Not available";
+  
       scheduleBox.innerHTML = `
-    <div class="schedule-title">
-      <span class="schedule-mode-badge ${route.mode.toLowerCase()}">${route.mode}</span>
-      <span>${data.line}</span>
-      ${data.isPeakTime ? '<span class="peak-badge">Peak Hour</span>' : '<span class="regular-badge">Regular</span>'}
-    </div>
-  
-    <div class="schedule-route-label">${data.from} → ${data.to}</div>
-  
-    <div class="schedule-info-grid">
-      <div><strong>First Train</strong><span>${data.firstTrain}</span></div>
-      <div><strong>Last Train</strong><span>${data.lastTrain}</span></div>
-      <div><strong>Regular</strong><span>Every ${data.regularFrequency} min</span></div>
-      <div><strong>Peak</strong><span>Every ${data.peakFrequency} min</span></div>
-    </div>
-  
-    <div class="schedule-peak-hours">
-           Peak Hours: ${peakHoursText}
-    </div>
-  
-    <div class="schedule-list">
-      ${data.trains.map((t, i) => `
-        <div class="schedule-item ${i === 0 ? 'next' : ''}">
-          <div>
-            <strong>${t.departs}</strong>
-            <span>${t.frequency}</span>
-          </div>
-          <div>${t.waitMin} min wait</div>
+        <div class="schedule-title">
+          <span class="schedule-mode-badge ${mode}">${route.mode}</span>
+          <span>${data.line}</span>
+          ${data.isPeakTime ? '<span class="peak-badge">Peak Hour</span>' : '<span class="regular-badge">Regular</span>'}
         </div>
-      `).join("")}
-    </div>
-  `;
+  
+        <div class="schedule-route-label">${data.from} → ${data.to}</div>
+  
+        <div class="schedule-info-grid">
+          <div><strong>First Train</strong><span>${data.firstTrain}</span></div>
+          <div><strong>Last Train</strong><span>${data.lastTrain}</span></div>
+          <div><strong>Regular</strong><span>Every ${data.regularFrequency} min</span></div>
+          <div><strong>Peak</strong><span>Every ${data.peakFrequency} min</span></div>
+        </div>
+  
+        <div class="schedule-peak-hours">
+          Peak Hours: ${peakHoursText}
+        </div>
+  
+        <div class="schedule-list">
+          ${data.trains.map((t, i) => `
+            <div class="schedule-item ${i === 0 ? "next" : ""}">
+              <div>
+                <strong>${t.departs}</strong>
+                <span>${t.frequency}</span>
+              </div>
+              <div>${t.waitMin} min wait</div>
+            </div>
+          `).join("")}
+        </div>
+      `;
     } catch (err) {
       console.error("Schedule fetch error:", err);
-      scheduleBox.innerHTML = `<div class="schedule-empty">Failed to load schedule information.।</div>`;
+      scheduleBox.innerHTML = `
+        <div class="schedule-empty">
+          Failed to load schedule information.
+        </div>
+      `;
     }
   }
 
