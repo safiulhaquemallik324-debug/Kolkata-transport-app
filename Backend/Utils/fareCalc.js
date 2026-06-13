@@ -61,14 +61,26 @@ const METRO_SLABS = [
       }
   
       case "Bus": {
-        // AC bus higher, Non-AC lower
         const isAC = /ac|air.?con/i.test(options.busType || "");
-        const baseFare = isAC
-          ? Math.max(15, Math.round(km * 2.5))
-          : Math.max(7, Math.round(km * 1.5));
+      
+        let fare;
+      
+        if (isAC) {
+          if (km <= 5) fare = 18;
+          else if (km <= 10) fare = 25;
+          else if (km <= 15) fare = 30;
+          else fare = 35;
+        } else {
+          if (km <= 4) fare = 10;
+          else if (km <= 8) fare = 15;
+          else if (km <= 15) fare = 18;
+          else if (km <= 25) fare = 25;
+          else fare = 30;
+        }
+      
         return {
-          fare: baseFare,
-          breakdown: `${isAC ? "AC" : "Non-AC"} bus fare (${km.toFixed(1)} km) -> ₹${baseFare}`
+          fare,
+          breakdown: `${isAC ? "AC" : "Non-AC"} bus fare (${km.toFixed(1)} km) -> ₹${fare}`
         };
       }
   
