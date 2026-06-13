@@ -662,6 +662,52 @@ export const jadavpurRoutes = [
     },
 
 
+    /////////////////////////////////////////////// twelwveth //////////////////////////////////////////////////////////////
+
+    {
+        "no": "45",
+        "path": [
+            "Patuli (Palki) Bus Terminus",
+            "Baishnabghata (Padmasri)",
+            "Ganguly Bagan",
+            "Baghajatin More",
+            "Sulekha More",
+            "Jadavpur 8B Bus Stand",
+            "Jadavpur Thana",
+            "Dhakuria",
+            "Golpark",
+            "Gariahat",
+            "Ballygunge Phari",
+            "Park Circus More",
+            "Park Circus 7 point",
+            "CNMCH (Chittaranjan Hospital)",
+            "CIT Road",
+            "Anandapalit",
+            "Moulali Crossing",
+            "Sealdah Court",
+            "Sealdah Station",
+            "Beleghata CIT More",
+            "Beleghata Sales Tax / Building More",
+            "Phoolbagan Crossing",
+            "Kankurgachi Crossing",
+            "Ultadanga (Hudco Crossing)",
+            "Sreebhumi",
+            "Lake Town Crossing (VIP Road)",
+            "Bangur Avenue",
+            "Dum Dum Park",
+            "Kestopur",
+            "Baguihati More",
+            "Jora Mandir",
+            "Teghoria",
+            "Haldiram",
+            "Kaikhali More",
+            "Airport Gate No. 1"
+        ],
+        "status": "Active & Highly Frequent Service",
+        "type": "Private / Joint Stock Transport Corporation Bus"
+    },
+    
+
 
 
 
